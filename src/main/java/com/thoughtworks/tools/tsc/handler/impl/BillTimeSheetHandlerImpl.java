@@ -1,7 +1,7 @@
-package com.thoughtworks.tools.tsc.handler.impl.impl;
+package com.thoughtworks.tools.tsc.handler.impl;
 
 import com.thoughtworks.tools.tsc.config.DataDict;
-import com.thoughtworks.tools.tsc.handler.impl.AbstractTimeSheetHandler;
+import com.thoughtworks.tools.tsc.handler.AbstractTimeSheetHandler;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.WorkingHours;
 

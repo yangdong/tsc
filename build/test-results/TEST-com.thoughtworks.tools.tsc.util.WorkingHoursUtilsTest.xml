@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.thoughtworks.tools.tsc.util.WorkingHoursUtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-05-05T07:44:04" hostname="CNsjyuan.local" time="0.001">
+  <properties/>
+  <testcase name="testExtractWeeksWorksDayHours" classname="com.thoughtworks.tools.tsc.util.WorkingHoursUtilsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

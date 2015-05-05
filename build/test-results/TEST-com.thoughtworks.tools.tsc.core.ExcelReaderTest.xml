@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.thoughtworks.tools.tsc.core.ExcelReaderTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2015-05-05T07:44:03" hostname="CNsjyuan.local" time="0.691">
+  <properties/>
+  <testcase name="testReadTWExcel" classname="com.thoughtworks.tools.tsc.core.ExcelReaderTest" time="0.488"/>
+  <testcase name="testReadBillExcel" classname="com.thoughtworks.tools.tsc.core.ExcelReaderTest" time="0.202"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

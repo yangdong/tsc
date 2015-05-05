@@ -1,7 +1,7 @@
 package com.thoughtworks.tools.tsc.core;
 
-import com.thoughtworks.tools.tsc.handler.impl.impl.BillTimeSheetHandlerImpl;
-import com.thoughtworks.tools.tsc.handler.impl.impl.TWTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.handler.impl.BillTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.handler.impl.TWTimeSheetHandlerImpl;
 import org.junit.Test;
 
 import java.util.List;

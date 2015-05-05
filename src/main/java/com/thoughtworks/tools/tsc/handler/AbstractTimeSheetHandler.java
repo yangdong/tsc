@@ -1,4 +1,4 @@
-package com.thoughtworks.tools.tsc.handler.impl;
+package com.thoughtworks.tools.tsc.handler;
 
 import com.thoughtworks.tools.tsc.core.ExcelReader;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
