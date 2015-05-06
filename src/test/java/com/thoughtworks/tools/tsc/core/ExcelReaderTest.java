@@ -1,7 +1,7 @@
 package com.thoughtworks.tools.tsc.core;
 
-import com.thoughtworks.tools.tsc.handler.impl.BillTimeSheetHandlerImpl;
-import com.thoughtworks.tools.tsc.handler.impl.TWTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.core.handler.impl.BillTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.core.handler.impl.TWTimeSheetHandlerImpl;
 import org.junit.Test;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class ExcelReaderTest {
 
     @Test
     public void testReadTWExcel() throws Exception {
-        ExcelReader excelReader = new ExcelReader("/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/TW_ts_April.xlsx");
+        ExcelParser excelReader = new ExcelParser("/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/TW_ts_April.xlsx");
         excelReader.readExcelAsMap(TWTimeSheetHandlerImpl.PROJECT_NAME,TWTimeSheetHandlerImpl.NAME, TWTimeSheetHandlerImpl.BILLABLE, TWTimeSheetHandlerImpl.START_DATE, TWTimeSheetHandlerImpl.MONDAY, TWTimeSheetHandlerImpl.TUESDAY, TWTimeSheetHandlerImpl.WEDNESDAY, TWTimeSheetHandlerImpl.THURSDAY, TWTimeSheetHandlerImpl.FRIDAY);
         List<String> sheetColumns = excelReader.getSheetColumns();
         assertTrue(-1 != sheetColumns.indexOf(TWTimeSheetHandlerImpl.PROJECT_NAME));
@@ -31,7 +31,7 @@ public class ExcelReaderTest {
 
     @Test
     public void testReadBillExcel() throws Exception {
-        ExcelReader excelReader = new ExcelReader("/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/Telstra_ts_April.xlsx");
+        ExcelParser excelReader = new ExcelParser("/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/Telstra_ts_April.xlsx");
         excelReader.readExcelAsMap(BillTimeSheetHandlerImpl.NAME, BillTimeSheetHandlerImpl.DATE, BillTimeSheetHandlerImpl.NUMBER, BillTimeSheetHandlerImpl.WBS);
         List<String> sheetColumns = excelReader.getSheetColumns();
         assertTrue(-1 != sheetColumns.indexOf(BillTimeSheetHandlerImpl.NAME));

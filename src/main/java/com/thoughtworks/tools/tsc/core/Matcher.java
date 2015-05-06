@@ -1,8 +1,8 @@
 package com.thoughtworks.tools.tsc.core;
 
 import com.thoughtworks.tools.tsc.util.TWProjectMemberMgr;
-import com.thoughtworks.tools.tsc.handler.impl.BillTimeSheetHandlerImpl;
-import com.thoughtworks.tools.tsc.handler.impl.TWTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.core.handler.impl.BillTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.core.handler.impl.TWTimeSheetHandlerImpl;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.model.WorkingHours;

@@ -1,14 +1,20 @@
 package com.thoughtworks.tools.tsc.web.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.thoughtworks.tools.tsc.core.Matcher;
+import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.service.TimesheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.yood.commons.util.io.FileUpDownUtils;
 
-import javax.xml.ws.RequestWrapper;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class TimeSheetUploadController {
@@ -16,11 +22,25 @@ public class TimeSheetUploadController {
     @Autowired
     private TimesheetService timesheetService;
 
+    @RequestMapping(value = "/",
+                    method = RequestMethod.GET)
+    public ModelAndView home() {
+        return new ModelAndView("index");
+    }
 
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public JSONObject matching(){
 
+    @RequestMapping(value = "upload",
+                    method = RequestMethod.POST)
+    public ModelAndView matching(@RequestParam("twFilePath") MultipartFile twFile, @RequestParam("telstraFilePath") MultipartFile telstraFile, HttpServletRequest request) throws IOException {
 
-        return null;
+        ModelAndView result = new ModelAndView("result");
+
+        String savaPathOfTwFile = FileUpDownUtils.saveFileToServer(twFile, request, null);
+        String savaPathOfTelstraFile = FileUpDownUtils.saveFileToServer(telstraFile, request, null);
+
+        Map<String, Map<String, Set<MismatchProperties>>> matchResult = timesheetService.matchTimesheetService(savaPathOfTwFile, savaPathOfTelstraFile);
+
+        result.addObject("result",matchResult);
+        return result;
     }
 }
