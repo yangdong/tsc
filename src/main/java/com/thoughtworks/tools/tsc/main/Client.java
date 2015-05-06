@@ -2,12 +2,15 @@ package com.thoughtworks.tools.tsc.main;
 
 import com.thoughtworks.tools.tsc.core.Matcher;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
+import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.out.impl.ConsoleLogImpl;
 import com.thoughtworks.tools.tsc.out.impl.FileLogImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Map;
+import java.util.Set;
 
 public class Client {
 
@@ -19,8 +22,8 @@ public class Client {
             System.out.println("Please input the Timesheet file path of ThougthWorks:");
             String twFilePath = br.readLine();
             if (null == twFilePath || "".equals(twFilePath.trim())) {
-//                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/March/TW_ts_March.xlsx";
-                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/TW_ts_April.xlsx";
+                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/March/TW_ts_March.xlsx";
+//                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/TW_ts_April.xlsx";
                 twReadingReg.setFile(twFilePath);
             }
             System.out.println("Please input the Timesheet file path of Telstra:");
@@ -33,13 +36,10 @@ public class Client {
             billReadingReg.setFile(billFilePath);
             br.close();
 
-            Matcher matcher = new Matcher(new ConsoleLogImpl());
-            matcher.matchByProject(billReadingReg, twReadingReg);
-            matcher.output();
-
-            Matcher matcher2 = new Matcher(new FileLogImpl("/Users/sjyuan/TSR.txt"));
-            matcher2.matchByProject(billReadingReg, twReadingReg);
-            matcher2.output();
+            Matcher matcher = new Matcher();
+            Map<String, Map<String, Set<MismatchProperties>>> result = matcher.matchByProject(billReadingReg, twReadingReg);
+            new ConsoleLogImpl().output(result);
+            new FileLogImpl("/Users/sjyuan/TSR.txt").output(result);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,41 +1,25 @@
 package com.thoughtworks.tools.tsc.core;
 
 import com.thoughtworks.tools.tsc.util.TWProjectMemberMgr;
-import com.thoughtworks.tools.tsc.handler.impl.impl.BillTimeSheetHandlerImpl;
-import com.thoughtworks.tools.tsc.handler.impl.impl.TWTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.core.handler.impl.BillTimeSheetHandlerImpl;
+import com.thoughtworks.tools.tsc.core.handler.impl.TWTimeSheetHandlerImpl;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.model.WorkingHours;
-import com.thoughtworks.tools.tsc.out.IOuter;
 import com.thoughtworks.tools.tsc.util.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.*;
 
 /**
  * Matcher do the job of matching two data of Timesheet. </br>
- * It provides output behavior with variable strategies,such as console log and file log
  */
+@Component
 public class Matcher {
-
-    private IOuter outer;
 
     private List<Map<String, Set<MismatchProperties>>> matchResult;
     private Map<String, Map<String, Set<MismatchProperties>>> matchResultGroupByProject;
-
-    public Matcher(IOuter outer) {
-        this.outer = outer;
-    }
-
-
-    public List<Map<String, Set<MismatchProperties>>> match(ExcelReadingReg billReadingReg, ExcelReadingReg twReadingReg) throws IOException {
-        BillTimeSheetHandlerImpl billResultHandler = new BillTimeSheetHandlerImpl(billReadingReg);
-        Map<String, List<WorkingHours>> billResult = billResultHandler.handle();
-        TWTimeSheetHandlerImpl twResultHandler = new TWTimeSheetHandlerImpl(twReadingReg);
-        Map<String, List<WorkingHours>> twResult = twResultHandler.handle();
-        matchResult = matchName(twResult, billResult);
-        return matchResult;
-    }
 
 
     public Map<String, Map<String, Set<MismatchProperties>>> matchByProject(ExcelReadingReg billReadingReg, ExcelReadingReg twReadingReg) throws IOException {
@@ -53,6 +37,15 @@ public class Matcher {
             }
         }
         return matchResultGroupByProject;
+    }
+
+    private List<Map<String, Set<MismatchProperties>>> match(ExcelReadingReg billReadingReg, ExcelReadingReg twReadingReg) throws IOException {
+        BillTimeSheetHandlerImpl billResultHandler = new BillTimeSheetHandlerImpl(billReadingReg);
+        Map<String, List<WorkingHours>> billResult = billResultHandler.handle();
+        TWTimeSheetHandlerImpl twResultHandler = new TWTimeSheetHandlerImpl(twReadingReg);
+        Map<String, List<WorkingHours>> twResult = twResultHandler.handle();
+        matchResult = matchName(twResult, billResult);
+        return matchResult;
     }
 
 
@@ -103,19 +96,6 @@ public class Matcher {
         }
         String[] names = preName.split(" +");
         return StringUtils.upperCaseOfFirstChar(names[0]) + " " + StringUtils.upperCaseOfFirstChar(names[1]);
-    }
-
-    /**
-     * Output the result,can assign different strategy to do the job</br>
-     * this method can be invoked successfully after match method invoked.
-     *
-     * @throws IllegalStateException If invoke with out invoking the method named match
-     */
-    public void output() {
-        if (null == matchResultGroupByProject) {
-            throw new IllegalStateException("Please invoke the match in order to obtain the result!");
-        }
-        outer.output(matchResultGroupByProject);
     }
 }
 

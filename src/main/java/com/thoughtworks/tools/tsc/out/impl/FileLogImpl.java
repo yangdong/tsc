@@ -2,6 +2,7 @@ package com.thoughtworks.tools.tsc.out.impl;
 
 import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.out.IOuter;
+import com.thoughtworks.tools.tsc.util.StringUtils;
 
 import java.io.*;
 import java.util.Map;
@@ -32,16 +33,7 @@ public class FileLogImpl implements IOuter {
         try {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(saveFilePath)));
             try {
-                for (Map.Entry<String, Map<String, Set<MismatchProperties>>> value : result.entrySet()) {
-                    for (Map.Entry<String, Set<MismatchProperties>> entry : value.getValue().entrySet()) {
-                        bw.write("-----"+entry.getKey() + " [project:" + value.getKey() + "]");
-                        for (MismatchProperties properties : entry.getValue()) {
-                            bw.newLine();
-                            bw.write(properties.toString());
-                        }
-                        bw.write("\n\n");
-                    }
-                }
+                bw.write(StringUtils.generateMsg(result));
             } finally {
                 if (null != bw) {
                     bw.close();
@@ -51,4 +43,6 @@ public class FileLogImpl implements IOuter {
             e.printStackTrace();
         }
     }
+
+
 }
