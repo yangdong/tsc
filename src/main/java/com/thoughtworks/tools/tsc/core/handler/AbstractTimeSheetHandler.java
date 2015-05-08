@@ -4,7 +4,6 @@ import com.thoughtworks.tools.tsc.core.ExcelParser;
 import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.WorkingHours;
-import com.thoughtworks.tools.tsc.util.StringUtils;
 import com.thoughtworks.tools.tsc.util.TWProjectMemberMgr;
 
 import java.io.File;
@@ -43,7 +42,7 @@ public abstract class AbstractTimeSheetHandler {
         Map<String, List<WorkingHours>> result = new HashMap<>();
         Map<Integer, List<Object>> excelData = getExcelParser().readExcelAsMap(getExcelReadingRegs().getReadColumns());
         for (List<Object> rowValue : excelData.values()) {
-            if (null != rowValue.get(0) && checkProperties(rowValue)) {
+            if (null != rowValue.get(0) && verifyProperties(rowValue)) {
                 processRowData(rowValue, result);
             }
         }
@@ -52,7 +51,7 @@ public abstract class AbstractTimeSheetHandler {
 
     protected abstract void processRowData(List<Object> rowValue, Map<String, List<WorkingHours>> result);
 
-    protected boolean checkProperties(List<Object> rowValue) {
+    protected boolean verifyProperties(List<Object> rowValue) {
         return true;
     }
 
