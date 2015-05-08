@@ -44,6 +44,10 @@ dependencies {
 
 }
 
+jettyRun{
+    httpPort=8088
+}
+
 jar {
     manifest {
         mainAttributes("Main-Class": "Client")

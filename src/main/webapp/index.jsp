@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sjyuan
-  Date: 5/5/15
-  Time: 10:54 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+            + path +
+            "/";
 %>
 <html>
 <head>
@@ -46,22 +40,48 @@
             height: 25px;
         }
 
+        span{
+            display: none;
+            font-size: 12px;
+            color:red;
+        }
+
+        .tips{
+            margin-top: 10px;
+        }
     </style>
+    <script>
+        function checkFileExtName(){
+            var twFile = document.getElementById("twFilePath").value;
+            if(twFile.trim() == '' || twFile.substring(twFile.indexOf("."))!=".xlsx"){
+                document.getElementById("errorMsg").style.display = "block";
+                return false;
+            }
+            var telstraFile = document.getElementById("telstraFilePath").value;
+            if(telstraFile.trim() == '' || telstraFile.substring(telstraFile.indexOf("."))!=".xlsx"){
+                document.getElementById("errorMsg").style.display = "block";
+                return false;
+            }
+            document.getElementById("errorMsg").style.display = "none";
+            return true;
+        }
+    </script>
 </head>
 <body>
 <div class="contain">
     <div class="main">
-        <h2>Timesheet 在线校验v1.1</h2><br>
+        <h2>TimesheetComparator-1.1-Beta1</h2><br>
 
-        <form enctype="multipart/form-data" action="<%=basePath%>upload" method="post">
+        <form enctype="multipart/form-data" onsubmit="return checkFileExtName();" action="<%=basePath%>match" method="post">
             <div class="file">TW：</div>
-            <input class="file_path" type="file" name="twFilePath"><br>
+            <input class="file_path" id="twFilePath" type="file" name="twFilePath"><br>
 
             <div class="file">Telstra：</div>
-            <input class="file_path" type="file" name="telstraFilePath">
-
+            <input class="file_path" id="telstraFilePath" type="file" name="telstraFilePath">
             <div><input type="submit" value="提交"></div>
+            <div><span id="errorMsg">请选择正确格式的文件，以.xlsx结尾</span></div>
         </form>
+        <div class="tips"><h3>Tips:Please make sure the sheet storing data of your excel files ranks firstly.</h3></div>
     </div>
 </div>
 </body>

@@ -1,6 +1,7 @@
 package com.thoughtworks.tools.tsc.main;
 
 import com.thoughtworks.tools.tsc.core.Matcher;
+import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.out.impl.ConsoleLogImpl;
@@ -20,17 +21,21 @@ public class Client {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.println("Please input the Timesheet file path of ThougthWorks:");
-            String twFilePath = br.readLine();
+//            String twFilePath = br.readLine();
+            String twFilePath = null;
             if (null == twFilePath || "".equals(twFilePath.trim())) {
-                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/March/TW_ts_March.xlsx";
+                twFilePath = "/Users/sjyuan/Downloads/TW April.xlsx";
+//                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/March/TW_ts_March.xlsx";
 //                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/TW_ts_April.xlsx";
                 twReadingReg.setFile(twFilePath);
             }
             System.out.println("Please input the Timesheet file path of Telstra:");
-            String billFilePath = br.readLine();
+//            String billFilePath = br.readLine();
+            String billFilePath = null;
             ExcelReadingReg billReadingReg = new ExcelReadingReg();
             if (null == billFilePath || "".equals(billFilePath.trim())) {
-                billFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents//TimeSheetReports/March/export.xlsx";
+                billFilePath = "/Users/sjyuan/Downloads/Telstra April.xlsx";
+//                billFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents//TimeSheetReports/March/export.xlsx";
 //                billFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/Telstra_ts_April.xlsx";
             }
             billReadingReg.setFile(billFilePath);
@@ -41,6 +46,8 @@ public class Client {
             new ConsoleLogImpl().output(result);
             new FileLogImpl("/Users/sjyuan/TSR.txt").output(result);
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SheetNotExistException e) {
             e.printStackTrace();
         }
     }

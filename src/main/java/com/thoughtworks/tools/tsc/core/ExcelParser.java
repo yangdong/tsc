@@ -1,6 +1,7 @@
 package com.thoughtworks.tools.tsc.core;
 
 
+import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.util.ExcelUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -16,11 +17,14 @@ import java.util.*;
  */
 public class ExcelParser {
 
-    private static final int DEFAULT_SHEET_INDEX = 0;
-
-    private final List<String> sheetColumns = new ArrayList<>();
+    public static final int DEFAULT_SHEET_INDEX = 0;
 
     private final XSSFSheet sheet;
+
+    private final List<String> sheetColumns = new ArrayList<>();
+    private final List<String> selectedColumns = new ArrayList<>();
+
+    private XSSFWorkbook workBook;
 
 
     public ExcelParser(String excelFilePath) {
@@ -34,17 +38,47 @@ public class ExcelParser {
      * @param selectedSheetIndex selected sheet index,arrange from 0~...
      */
     public ExcelParser(String excelFilePath, int selectedSheetIndex) {
-        XSSFWorkbook workBook;
+        initWorkBook(excelFilePath);
+        int numberOfSheets = workBook.getNumberOfSheets();
+        if (selectedSheetIndex >= numberOfSheets) {
+            selectedSheetIndex = numberOfSheets - 1;
+        } else if (selectedSheetIndex < 0) {
+            selectedSheetIndex = DEFAULT_SHEET_INDEX;
+        }
+        sheet = workBook.getSheetAt(selectedSheetIndex);
+        try {
+            checkSheetExist(sheet);
+        } catch (SheetNotExistException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("No Sheet exist on your excel file!");
+        }
+    }
+
+
+    public ExcelParser(String excelFilePath, String sheetName) throws SheetNotExistException {
+        initWorkBook(excelFilePath);
+        sheet = workBook.getSheet(sheetName);
+        checkSheetExist(sheet);
+    }
+
+    private void checkSheetExist(XSSFSheet sheet) throws SheetNotExistException {
+        if (null == sheet) {
+            throw new SheetNotExistException();
+        }
+    }
+
+
+    private void initWorkBook(String excelFilePath) {
         try {
             workBook = new XSSFWorkbook(new FileInputStream(excelFilePath));
         } catch (IOException e) {
             throw new IllegalArgumentException("Execl file path is invalid!", e);
         }
-        sheet = workBook.getSheetAt(selectedSheetIndex);
     }
 
 
     public Map<Integer, List<Object>> readExcelAsMap(String... selectedColumns) throws IOException {
+        Collections.addAll(this.selectedColumns,selectedColumns);
         Map<Integer, List<Object>> result = new LinkedHashMap<>();
         Iterator<Row> rowIterator = sheet.iterator();
         int rowNum = 0;
@@ -53,8 +87,10 @@ public class ExcelParser {
             Row row = rowIterator.next();
             if (0 == rowNum) {
                 selectedIndexs = calculateSelectedIndexs(row, selectedColumns);
+            } else {
+                result.put(rowNum, extractRowValue(row, selectedIndexs));
             }
-            result.put(rowNum++, extractRowValue(row, selectedIndexs));
+            rowNum++;
         }
         return result;
     }
@@ -76,6 +112,7 @@ public class ExcelParser {
         return ExcelUtils.calculateSelectedIndexs(sheetColumns, selectedColumns);
     }
 
+
     private List<Object> extractRowValue(Row row, int[] selectedIndexArray) {
         List<Object> rowValueList = new ArrayList<>();
         if (null != selectedIndexArray) {
@@ -94,7 +131,7 @@ public class ExcelParser {
     private Object extractCellValue(Cell cell) {
         if (null != cell) {
             if (Cell.CELL_TYPE_NUMERIC == cell.getCellType()) {
-                return cell.getNumericCellValue() <= 8 ? cell.getNumericCellValue() : cell.getDateCellValue();
+                return cell.getNumericCellValue() <= 24 ? cell.getNumericCellValue() : cell.getDateCellValue();
             } else if (Cell.CELL_TYPE_STRING == cell.getCellType()) {
                 return cell.getStringCellValue();
             }
@@ -104,5 +141,9 @@ public class ExcelParser {
 
     public List<String> getSheetColumns() {
         return sheetColumns;
+    }
+
+    public List<String> getSelectedColumns() {
+        return selectedColumns;
     }
 }
