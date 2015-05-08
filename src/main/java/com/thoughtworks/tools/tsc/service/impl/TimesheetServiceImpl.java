@@ -1,6 +1,7 @@
 package com.thoughtworks.tools.tsc.service.impl;
 
 import com.thoughtworks.tools.tsc.core.Matcher;
+import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.service.TimesheetService;
@@ -18,11 +19,14 @@ public class TimesheetServiceImpl implements TimesheetService {
     private Matcher matcher;
 
     @Override
-    public Map<String, Map<String, Set<MismatchProperties>>> matchTimesheetService(String twTimesheetFilePath, String telstraTimesheetFilePath) throws IOException {
+    public Map<String, Map<String, Set<MismatchProperties>>> matchTimesheetService(
+            String twTimesheetFilePath,
+            String telstraTimesheetFilePath)
+            throws IOException, SheetNotExistException {
         ExcelReadingReg twReadingReg = new ExcelReadingReg();
         twReadingReg.setFile(twTimesheetFilePath);
         ExcelReadingReg telstraReadingReg = new ExcelReadingReg();
         telstraReadingReg.setFile(telstraTimesheetFilePath);
-        return matcher.matchByProject(telstraReadingReg,twReadingReg);
+        return matcher.matchByProject(telstraReadingReg, twReadingReg);
     }
 }

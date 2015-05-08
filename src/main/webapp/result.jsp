@@ -19,12 +19,12 @@
             background-color: bisque;
             width: 100%;
             margin:auto;
-            height: 1000px;
+            height: 2000px;
         }
         .main{
             width: auto;
             height: 100%;
-            margin:auto;
+            margin-left: 10px;
 
         }
         .mismatch{
@@ -46,7 +46,7 @@
 <body>
 <div class="contain">
     <div class="main">
-        <h2>Timesheet匹配结果</h2><br>
+        <h2>Timesheet比较结果</h2><br>
         <c:forEach items="${result}" var="project_names">
             <c:forEach items="${project_names.value}" var="name_mismatchs">
                 <div class="name">

@@ -1,5 +1,6 @@
 package com.thoughtworks.tools.tsc.web.controller;
 
+import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.model.MismatchProperties;
 import com.thoughtworks.tools.tsc.service.TimesheetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class TimeSheetUploadController {
     }
 
 
-    @RequestMapping(value = "upload",
+    @RequestMapping(value = "match",
                     method = RequestMethod.POST)
     public ModelAndView matching(@RequestParam("twFilePath") MultipartFile twFile, @RequestParam("telstraFilePath") MultipartFile telstraFile, HttpServletRequest request) throws IOException {
 
@@ -38,8 +39,12 @@ public class TimeSheetUploadController {
         String savaPathOfTwFile = FileUpDownUtils.saveFileToServer(twFile, request, null);
         String savaPathOfTelstraFile = FileUpDownUtils.saveFileToServer(telstraFile, request, null);
 
-        Map<String, Map<String, Set<MismatchProperties>>> matchResult = timesheetService.matchTimesheetService(savaPathOfTwFile, savaPathOfTelstraFile);
-
+        Map<String, Map<String, Set<MismatchProperties>>> matchResult = null;
+        try {
+            matchResult = timesheetService.matchTimesheetService(savaPathOfTwFile, savaPathOfTelstraFile);
+        } catch (SheetNotExistException e) {
+            e.printStackTrace();
+        }
         result.addObject("result",matchResult);
         return result;
     }
