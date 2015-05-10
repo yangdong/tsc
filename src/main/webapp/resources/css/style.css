@@ -40,3 +40,28 @@ span{
 .tips{
     margin-top: 10px;
 }
+
+.mismatch {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.mismatch span {
+    border-bottom: 1px dashed chocolate;
+    font-size: 14px;
+}
+
+.mismatch .nonexist {
+    color: red;
+}
+.mismatch .exist {
+    color: blue;
+}
+
+.mismatch h3 {
+    text-decoration: underline;
+}
+
+.name {
+    margin-top: 5px;
+}

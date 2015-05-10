@@ -23,12 +23,6 @@ public class TimeSheetUploadController {
     @Autowired
     private TimesheetService timesheetService;
 
-    @RequestMapping(value = "/",
-                    method = RequestMethod.GET)
-    public ModelAndView home() {
-        return new ModelAndView("index");
-    }
-
 
     @RequestMapping(value = "match",
                     method = RequestMethod.POST)
