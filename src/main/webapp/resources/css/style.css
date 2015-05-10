@@ -1,0 +1,67 @@
+*, body {
+    margin: 0;
+}
+
+.contain {
+    background-color: bisque;
+    width: 100%;
+    margin: auto;
+    height: 1000px;
+}
+
+.main {
+    width: 500px;
+    height: 100%;
+    margin: auto;
+}
+
+form{
+    font-size: 12px;
+}
+
+.file {
+    margin-top: 10px;
+    display: inline-block;
+    width: 150px;
+}
+
+.file_path {
+
+    width: 300px;
+    height: 25px;
+}
+
+span{
+    display: none;
+    font-size: 12px;
+    color:red;
+}
+
+.tips{
+    margin-top: 10px;
+}
+
+.mismatch {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.mismatch span {
+    border-bottom: 1px dashed chocolate;
+    font-size: 14px;
+}
+
+.mismatch .nonexist {
+    color: red;
+}
+.mismatch .exist {
+    color: blue;
+}
+
+.mismatch h3 {
+    text-decoration: underline;
+}
+
+.name {
+    margin-top: 5px;
+}

@@ -7,12 +7,12 @@ public class MismatchProperties implements Comparable<MismatchProperties>{
 
     private Date workday;
     private double hoursInTW;
-    private double hoursInBill;
+    private double hoursInTelstra;
 
     public MismatchProperties(Date workday, double hoursInTW, double hoursInTelstra) {
         this.workday = workday;
         this.hoursInTW = hoursInTW;
-        this.hoursInBill = hoursInTelstra;
+        this.hoursInTelstra = hoursInTelstra;
     }
 
     public Date getWorkday() {
@@ -32,11 +32,11 @@ public class MismatchProperties implements Comparable<MismatchProperties>{
     }
 
     public double getHoursInTelstra() {
-        return hoursInBill;
+        return hoursInTelstra;
     }
 
-    public void setHoursInBill(double hoursInBill) {
-        this.hoursInBill = hoursInBill;
+    public void setHoursInTelstra(double hoursInTelstra) {
+        this.hoursInTelstra = hoursInTelstra;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class MismatchProperties implements Comparable<MismatchProperties>{
         return "Mismatch{" +
                 "Date=" + new SimpleDateFormat("yyyy-MM-dd").format(workday) +
                 ", Hours in TW=" + hoursInTW +
-                ", Hours in Telstra=" + hoursInBill +
+                ", Hours in Telstra=" + hoursInTelstra +
                 '}';
     }
 

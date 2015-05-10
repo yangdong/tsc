@@ -1,18 +1,14 @@
 package com.thoughtworks.tools.tsc.core.handler.impl;
 
 import com.thoughtworks.tools.tsc.config.DataDict;
-import com.thoughtworks.tools.tsc.core.ExcelParser;
 import com.thoughtworks.tools.tsc.core.handler.AbstractTimeSheetHandler;
 import com.thoughtworks.tools.tsc.exception.IllegalRowValueException;
 import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.util.TWProjectMemberMgr;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.WorkingHours;
-import com.thoughtworks.tools.tsc.util.StringUtils;
 import com.thoughtworks.tools.tsc.util.WorkingHoursUtils;
 
-import java.awt.*;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -40,14 +36,14 @@ public class TWTimeSheetHandler extends AbstractTimeSheetHandler {
     }
 
     @Override
-    protected boolean checkProperties(List<Object> rowValue) {
+    protected boolean verifyProperties(List<Object> rowValue) {
         Object value = rowValue.get(1);
         if (value instanceof String) {
             return DataDict.Billable.BILLABLE_STR.equals(rowValue.get(1));
         } if (value instanceof Double) {
             return DataDict.Billable.BILLABLE_DOUBLE == (Double) value;
         }
-        return super.checkProperties(rowValue);
+        return super.verifyProperties(rowValue);
     }
 
     @Override

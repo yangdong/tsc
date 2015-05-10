@@ -40,7 +40,7 @@ public class TelstraTimeSheetHandler extends AbstractTimeSheetHandler {
     }
 
     @Override
-    protected boolean checkProperties(List<Object> rowValue) {
+    protected boolean verifyProperties(List<Object> rowValue) {
         return !DataDict.WBSElemDesc.UNBILLABEL_DESC.equals(rowValue.get(3));
     }
 
