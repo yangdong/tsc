@@ -59,7 +59,7 @@
 <body>
 <div class="contain">
     <div class="main">
-        <h2>Timesheet比较结果</h2><br>
+        <h1>Timesheets Compared Result</h1><br>
         <c:forEach items="${result}" var="project_names">
             <c:forEach items="${project_names.value}" var="name_mismatchs">
                 <div class="name">

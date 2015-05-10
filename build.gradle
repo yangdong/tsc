@@ -15,32 +15,43 @@ dependencies {
     def poiVersion = "3.10-FINAL"
     def springVersion = "3.2.3.RELEASE"
 
+
     providedCompile "org.apache.tomcat:tomcat-servlet-api:7.0.8"
 
+    //Basic spring framework and log
     compile "org.springframework:spring-context:${springVersion}",
             "org.springframework:spring-webmvc:${springVersion}",
             "org.springframework:spring-jdbc:${springVersion}",
             "org.springframework:spring-orm:${springVersion}",
             "org.apache.poi:poi-ooxml:${poiVersion}",
-            "org.mybatis:mybatis:3.2.1",
-            "org.mybatis:mybatis-spring:1.2.0",
-            "com.alibaba:druid:0.2.20",
-            "org.xerial:sqlite-jdbc:3.8.7",
-            "com.alibaba:fastjson:1.1.34",
-            "com.jayway.jsonpath:json-path:0.9.1",
-            "org.apache.commons:commons-compress:1.9",
-            "org.apache.ant:ant:1.9.3",
-            "com.alibaba:fastjson:1.1.34",
-            "com.jayway.jsonpath:json-path:0.9.1",
             'commons-fileupload:commons-fileupload:1.3.1',
-            'javax.servlet.jsp.jstl:jstl-api:1.2'
+            'org.apache.tomcat:tomcat-catalina:8.0.22',
+            'log4j:log4j:1.2.17'
 
 
+    //Json
+    compile "com.alibaba:fastjson:1.1.34",
+            "com.jayway.jsonpath:json-path:0.9.1"
 
+    //Database and dbcp
+    compile 'commons-dbcp:commons-dbcp:1.4',
+            "com.alibaba:druid:0.2.20",
+            "org.xerial:sqlite-jdbc:3.8.7"
+
+    //Mybatis
+    compile "org.mybatis:mybatis:3.2.1",
+            "org.mybatis:mybatis-spring:1.2.0"
+
+
+    //Compress
+    compile "org.apache.commons:commons-compress:1.9",
+            "org.apache.ant:ant:1.9.3"
+
+    //Unit test
     testCompile "org.springframework:spring-test:${springVersion}",
             "org.mockito:mockito-all:1.9.5",
             "org.hamcrest:hamcrest-all:1.3",
-            "junit:junit:4.7"
+            "junit:junit:4.11"
 
 }
 
@@ -50,7 +61,7 @@ jettyRun{
 
 jar {
     manifest {
-        mainAttributes("Main-Class": "Client")
+        mainAttributes("Main-Class": "com.thoughtworks.tools.tsc.main.Client")
     }
     from {
         configurations.compile.collect {
