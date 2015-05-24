@@ -24,7 +24,7 @@ public class Client {
 //            String twFilePath = br.readLine();
             String twFilePath = null;
             if (null == twFilePath || "".equals(twFilePath.trim())) {
-                twFilePath = "/Users/sjyuan/Downloads/TW April.xlsx";
+                twFilePath = "/Users/sjyuan/Downloads/TW-April.xls";
 //                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/March/TW_ts_March.xlsx";
 //                twFilePath = "/Users/sjyuan/Personal-sjyuan/Works/Documents/TimeSheetReports/April/TW_ts_April.xlsx";
                 twReadingReg.setFile(twFilePath);

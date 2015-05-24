@@ -72,7 +72,6 @@ public class TWTimeSheetHandler extends AbstractTimeSheetHandler {
         }
     }
 
-
     private WorkingHours[] extractWeekWorkingHours(List<Object> rowValue) throws IllegalRowValueException {
         Object date = rowValue.get(2);
         throwIllegalRowValueExceptionWhenNull(date);

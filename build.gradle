@@ -2,6 +2,8 @@ apply plugin: "java"
 apply plugin: "jetty"
 apply plugin: "war"
 
+
+
 sourceCompatibility = 1.7
 version = '1.0'
 
@@ -16,7 +18,6 @@ dependencies {
     def springVersion = "3.2.3.RELEASE"
 
 
-    providedCompile "org.apache.tomcat:tomcat-servlet-api:7.0.8"
 
     //Basic spring framework and log
     compile "org.springframework:spring-context:${springVersion}",
@@ -51,12 +52,13 @@ dependencies {
     testCompile "org.springframework:spring-test:${springVersion}",
             "org.mockito:mockito-all:1.9.5",
             "org.hamcrest:hamcrest-all:1.3",
-            "junit:junit:4.11"
+            "junit:junit:4.11",
+            "javax.servlet:javax.servlet-api:3.1.0"
 
 }
 
 jettyRun{
-    httpPort=8089
+    httpPort=8090
 }
 
 jar {
@@ -80,6 +82,15 @@ task fatJar(type: Jar) {
         }
     }
     with jar
+}
+
+task deploy << {
+    ssh.run {
+        session(remotes.webServer) {
+            put from: 'example.war', into: '/webapps'
+            execute 'sudo service tomcat restart'
+        }
+    }
 }
 
 
