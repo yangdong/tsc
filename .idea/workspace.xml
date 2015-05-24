@@ -2,17 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bfdba92-7119-4f53-b1a7-ce55f36beea7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Vagrantfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/main/Client.java" afterPath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/main/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/core/ExcelParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/core/ExcelParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/core/handler/impl/TWTimeSheetHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/core/handler/impl/TWTimeSheetHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/core/handler/impl/TelstraTimeSheetHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/thoughtworks/tools/tsc/core/handler/impl/TelstraTimeSheetHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/view/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/view/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/match.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/match.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tsc.iml" afterPath="$PROJECT_DIR$/tsc.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/06f7847c0f8f4cecad309c30db3b1cea.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/0797a9e1a5a04ca6942a180c0d44b38e.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/143cd1524266465091d576155fbe0411.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/295dc9e7812944e6a8f988a90325c9ba.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/2e87fe75b96e43749479ac13f62befeb.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/2f815787d74f43ad89c45b9b156bde11.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/3114e4562e2e446cb2941457861dfc72.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/32a21011222e44f9a1e836a8a5f430cd.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/33482212fc3b4b6a89a85249bf68eec5.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/33dc7919dc9640a5a64f2126861ebba8.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/3908f16746064c28aac2d5a7e682bdbc.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/3ca6d01c89a24cb8bc5c2ac8a23c4d1c.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/3f3480df55114dcb9a89ae941288c17d.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/474e6c0b77e944a5b954d718c2678ae7.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/47bce3ae24ec42cb83ab76058cc6a436.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/4ca01027238c4e5bbef3bebc88c76fec.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/6989c9c815514a9f8368d5d918221e40.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/70382328bd64499c80bcdc3607a92b52.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/705314aa37e6467a889aee3bbd977658.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/7089a46af668452db91eccd80b231ad9.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/70b9c3ff7ad64207a1425622a61e930e.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/725ede31362f41ddb89968e45fbb358e.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/74eaa85e8aa84e1f9507754f073585fc.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/87322927605e44f69709ad20612f9baa.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/8e598d19d0274591852e898cc159175d.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/92e745d4f5c74098b7711800983c557c.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/9ebd92e1962e40d5b3865159497e8b00.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/a0647b70404b48a79e470ffe30a46055.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/a26d6d0dff224d518a66782e84b85536.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/b2d8547e24004bd28f918c1f247b9f57.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/c660ed250b2c4cad835564de933ea3ac.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/c79685991da9468a9f27aa1b5b111705.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/cf1587c83a9b4a76b8ffb9052edcbc14.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/d0b86ae0cd79422fabe070104b1a942b.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/d3f173a9ba72447ea7412c2442665695.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/d79599d8594e482e997d71c3444bf123.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/da3100600045461d965ab72437dd199c.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/dc3ed7fc9c3649d3bd3ab38e03c4bc56.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/ebf0f4ac99d84dc0b58c138c5403ec4f.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/efbeead875ed4af09afdf2942bbf2755.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/f090815f18c846e7a75fccb7b661ac42.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/fb1dbd204cdc44498d40533fc2ef6043.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/fc62b6d5e6c343bdbbebe185ce316a15.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/upload/timesheet/fc81229702104c3788728993a9f91907.xlsx" afterPath="" />
     </list>
     <ignored path="tsc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -721,32 +754,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="upload" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tsc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1430,12 +1437,12 @@
       <workItem from="1431923637496" duration="2707000" />
       <workItem from="1432006291870" duration="2211000" />
       <workItem from="1432285479281" duration="1329000" />
-      <workItem from="1432437616308" duration="66000" />
+      <workItem from="1432437616308" duration="123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92186000" />
+    <option name="totallyTimeSpent" value="92243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
