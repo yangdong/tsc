@@ -1,14 +1,15 @@
 package com.thoughtworks.tools.tsc.core.handler.impl;
 
 import com.thoughtworks.tools.tsc.config.DataDict;
-import com.thoughtworks.tools.tsc.core.ExcelParser;
 import com.thoughtworks.tools.tsc.core.handler.AbstractTimeSheetHandler;
 import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.model.ExcelReadingReg;
 import com.thoughtworks.tools.tsc.model.WorkingHours;
 
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class TelstraTimeSheetHandler extends AbstractTimeSheetHandler {
 
@@ -24,7 +25,6 @@ public class TelstraTimeSheetHandler extends AbstractTimeSheetHandler {
 
     @Override
     protected void processRowData(List<Object> rowValue, Map<String, List<WorkingHours>> result) {
-
         String name = ((String) rowValue.get(0)).toLowerCase();
         WorkingHours workingHours = new WorkingHours((Date) rowValue.get(1), (Double) rowValue.get(2));
         List<WorkingHours> workingHourses = result.get(name);

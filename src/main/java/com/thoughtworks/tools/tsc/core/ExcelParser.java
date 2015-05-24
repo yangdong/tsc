@@ -3,9 +3,11 @@ package com.thoughtworks.tools.tsc.core;
 
 import com.thoughtworks.tools.tsc.exception.SheetNotExistException;
 import com.thoughtworks.tools.tsc.util.ExcelUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
@@ -17,14 +19,19 @@ import java.util.*;
  */
 public class ExcelParser {
 
+    public class ExcelExtension {
+        public static final String OFFICE_EXCEL_2003_POSTFIX = "xls";
+        public static final String OFFICE_EXCEL_2010_POSTFIX = "xlsx";
+    }
+
     public static final int DEFAULT_SHEET_INDEX = 0;
 
-    private final XSSFSheet sheet;
+    private final Sheet sheet;
 
     private final List<String> sheetColumns = new ArrayList<>();
     private final List<String> selectedColumns = new ArrayList<>();
 
-    private XSSFWorkbook workBook;
+    private Workbook workBook;
 
 
     public ExcelParser(String excelFilePath) {
@@ -61,21 +68,23 @@ public class ExcelParser {
         checkSheetExist(sheet);
     }
 
-    private void checkSheetExist(XSSFSheet sheet) throws SheetNotExistException {
+    private void checkSheetExist(Sheet sheet) throws SheetNotExistException {
         if (null == sheet) {
             throw new SheetNotExistException();
         }
     }
 
-
     private void initWorkBook(String excelFilePath) {
         try {
-            workBook = new XSSFWorkbook(new FileInputStream(excelFilePath));
+            if (excelFilePath.endsWith(ExcelExtension.OFFICE_EXCEL_2003_POSTFIX)){
+                workBook = new HSSFWorkbook(new FileInputStream(excelFilePath));
+            }else {
+                workBook = new XSSFWorkbook(new FileInputStream(excelFilePath));
+            }
         } catch (IOException e) {
             throw new IllegalArgumentException("Execl file path is invalid!", e);
         }
     }
-
 
     public Map<Integer, List<Object>> readExcelAsMap(String... selectedColumns) throws IOException {
         Collections.addAll(this.selectedColumns,selectedColumns);

@@ -2,14 +2,18 @@
  *
  * Created by sjyuan on 5/8/15.
  */
-function checkFileExtName(){
+function checkFileExtName() {
+
     var twFile = document.getElementById("twFilePath").value;
-    if(twFile.trim() == '' || twFile.substring(twFile.indexOf("."))!=".xlsx"){
+    var extName = twFile.substring(twFile.lastIndexOf("."));
+    if (twFile.trim() == '' || extName != ".xlsx" && extName != ".xls") {
         document.getElementById("errorMsg").style.display = "block";
         return false;
     }
     var telstraFile = document.getElementById("telstraFilePath").value;
-    if(telstraFile.trim() == '' || telstraFile.substring(telstraFile.indexOf("."))!=".xlsx"){
+
+    extName = telstraFile.substring(telstraFile.lastIndexOf("."));
+    if (telstraFile.trim() == '' || extName != ".xlsx" && extName != ".xls") {
         document.getElementById("errorMsg").style.display = "block";
         return false;
     }
