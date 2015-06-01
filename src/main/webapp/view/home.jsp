@@ -24,7 +24,7 @@
             <div><input type="submit" value="提交"></div>
             <div><span id="errorMsg">请选择正确格式的文件，以.xlsx或者.xls结尾</span></div>
         </form>
-        <div class="tips"><h3>Tips:Please make sure the sheet storing data of your excel files ranks firstly.</h3></div>
+        <div class="tips"><h3>温馨提示：确保Excel文件中储存数据的sheet是第一个sheet。</h3></div>
     </div>
 </div>
 </body>
