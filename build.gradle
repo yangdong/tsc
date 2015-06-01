@@ -58,7 +58,7 @@ dependencies {
 }
 
 jettyRun{
-    httpPort=8090
+    httpPort=8088
 }
 
 jar {

@@ -6,6 +6,7 @@ classes/*
 .gradle/*
 build/*
 out/*
+src/main/webapp/upload/*
 
 .DS_Store
 *.ipr
